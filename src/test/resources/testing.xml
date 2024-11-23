@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Method-Specific Test Suite">
+    <test name="Login Method Tests">
+        <classes>
+            <class name="steps.LoginSteps">
+                <methods>
+                    <include name="testValidLogin" />
+                    <include name="testInvalidLogin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,40 @@
+Feature: Amazon E-commerce Functionalities
+
+  # Simple Feature 1: Login Functionality
+  Scenario: Successful login with valid credentials
+    Given I navigate to the login page
+    When I enter valid credentials
+    Then I should see the user dashboard
+
+  Scenario: Unsuccessful login with invalid credentials
+    Given I navigate to the login page
+    When I enter invalid credentials
+    Then I should see an error message "Invalid username or password"
+
+  # Simple Feature 2: Search Functionality
+  Scenario: Search for a valid product
+    Given I am on the Amazon home page
+    When I search for "laptop"
+    Then I should see a list of laptops in the search results
+
+  Scenario: Search for an invalid product
+    Given I am on the Amazon home page
+    When I search for "xyzabc123"
+    Then I should see a message "No results found"
+
+  # Complex Feature 1: Filter and Sort Functionality
+  Scenario: Apply a price filter and sort by relevance
+    Given I am on the search results page for "laptop"
+    When I apply a price filter of "$500 to $1000"
+    And I sort the results by "Price: Low to High"
+    Then all displayed products should be within the $500 to $1000 range
+    And the products should be sorted from lowest to highest price
+
+  # Complex Feature 2: Checkout and Payment Workflow
+  Scenario: Successful checkout with credit card
+    Given I have a product in my cart
+    When I proceed to checkout
+    And I enter valid shipping information
+    And I select "Credit Card" as the payment method
+    And I enter valid credit card details
+    Then I should see an order confirmation page
